@@ -4,42 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paulo Munhoz</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PDC07MCJ3H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PDC07MCJ3H');
+
+  function trackClick(category, label) {
+    gtag('event', 'click', {
+      event_category: category,
+      event_label: label
+    });
+  }
+</script>
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0f0f0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #fff; min-height: 100vh; }
+  body {
+    background: linear-gradient(180deg, #000000 0%, #1a1a2e 50%, #2a3a5c 100%);
+    background-attachment: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+  }
   .site { max-width: 480px; margin: 0 auto; padding-bottom: 48px; }
 
-  /* HERO */
   .hero { padding: 52px 28px 32px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
   .avatar { width: 88px; height: 88px; border-radius: 50%; background: #1e1e1e; border: 2px solid #2a2a2a; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
   .name { font-size: 24px; font-weight: 500; color: #fff; text-align: center; letter-spacing: -0.01em; }
-  .tagline { font-size: 11px; color: #555; text-align: center; text-transform: uppercase; letter-spacing: 0.12em; }
+  .tagline { font-size: 11px; color: #888; text-align: center; text-transform: uppercase; letter-spacing: 0.12em; }
 
-  /* SECTION LABEL */
   .sec-label { display: flex; align-items: center; gap: 8px; padding: 0 28px 16px; }
-  .sec-label svg { width: 14px; height: 14px; stroke: #555; fill: none; flex-shrink: 0; }
-  .sec-label span { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.12em; }
+  .sec-label svg { width: 14px; height: 14px; stroke: #666; fill: none; flex-shrink: 0; }
+  .sec-label span { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.12em; }
 
-  /* GRADE FOTOS SALÃO */
   .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin: 0 28px 20px; border-radius: 14px; overflow: hidden; }
   .photo-slot { aspect-ratio: 1; background: #1a1a1a; overflow: hidden; position: relative; }
   .photo-slot a { display: block; width: 100%; height: 100%; }
   .photo-slot img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s; }
   .photo-slot:hover img { opacity: 0.8; }
-  .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.55); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-  .play-icon svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
 
-  /* GRADE VÍDEOS IMÓVEIS */
   .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin: 0 28px 20px; border-radius: 14px; overflow: hidden; }
   .video-slot { aspect-ratio: 9/16; background: #1a1a1a; overflow: hidden; position: relative; }
   .video-slot a { display: block; width: 100%; height: 100%; }
   .video-slot img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.2s; }
   .video-slot:hover img { opacity: 0.8; }
-  .video-slot .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.55); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-  .video-slot .play-icon svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
+  .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.55); border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+  .play-icon svg { width: 14px; height: 14px; fill: white; margin-left: 2px; }
 
-  /* BOTÕES */
   .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: calc(100% - 56px); margin: 0 28px 10px; padding: 15px 20px; border-radius: 50px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; text-decoration: none; letter-spacing: 0.01em; transition: opacity 0.15s, transform 0.1s; }
   .btn:hover { opacity: 0.85; }
   .btn:active { transform: scale(0.98); }
@@ -49,22 +65,23 @@
   .btn-insta { background: #2b0d1f; color: #f472b6; border: 0.5px solid #5f1e3a; }
   .btn-yt { background: #2b0d0d; color: #f87171; border: 0.5px solid #5f1e1e; }
   .btn-tt { background: #0d0d2b; color: #a78bfa; border: 0.5px solid #1e1e5f; }
+  .btn-blue { background: #0d1a2b; color: #7db8f7; border: 0.5px solid #1e3a5f; }
 
-  /* DIVISÓRIA */
   .divider { display: flex; align-items: center; gap: 12px; padding: 12px 28px 28px; }
-  .div-line { flex: 1; height: 0.5px; background: #222; }
-  .div-dot { width: 5px; height: 5px; border-radius: 50%; background: #2a2a2a; flex-shrink: 0; }
+  .div-line { flex: 1; height: 0.5px; background: #333; }
+  .div-dot { width: 5px; height: 5px; border-radius: 50%; background: #444; flex-shrink: 0; }
 
-  /* HEADER IMÓVEIS */
-  .imoveis-header { display: flex; align-items: center; gap: 16px; padding: 0 28px 20px; }
-  .imoveis-avatar { width: 52px; height: 52px; border-radius: 50%; background: #1e1e1e; border: 1.5px solid #2a2a2a; overflow: hidden; flex-shrink: 0; }
-  .imoveis-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; }
-  .imoveis-info { display: flex; flex-direction: column; gap: 4px; }
-  .imoveis-name { font-size: 15px; font-weight: 500; color: #fff; }
-  .imoveis-sub { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 0.1em; }
+  .sec-header { display: flex; align-items: center; gap: 16px; padding: 0 28px 20px; }
+  .sec-avatar { width: 52px; height: 52px; border-radius: 50%; background: #1e1e1e; border: 1.5px solid #2a2a2a; overflow: hidden; flex-shrink: 0; }
+  .sec-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+  .logo-avatar { width: 52px; height: 52px; border-radius: 50%; background: #5b8cc8; border: 1.5px solid #4a7ab5; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .logo-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .sec-info { display: flex; flex-direction: column; gap: 4px; }
+  .sec-name { font-size: 15px; font-weight: 500; color: #fff; }
+  .sec-sub { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
 
   .footer { padding: 32px 28px 8px; text-align: center; }
-  .footer span { font-size: 10px; color: #333; text-transform: uppercase; letter-spacing: 0.12em; }
+  .footer span { font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: 0.12em; }
 </style>
 </head>
 <body>
@@ -76,126 +93,96 @@
       <img src="foto.jpg" alt="Paulo Munhoz">
     </div>
     <div class="name">Paulo Munhoz</div>
-    <div class="tagline">Salão · Imóveis</div>
+    <div class="tagline">Salão · Imóveis · Uniformes</div>
   </div>
 
-  <!-- SEÇÃO SALÃO -->
+  <!-- SALÃO -->
   <div class="sec-label">
     <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 3l6 9m0 0l6-9M12 12l-6 9m6-9l6 9"/></svg>
     <span>Paulo Munhoz Concept</span>
   </div>
-
-  <!-- GRADE FOTOS SALÃO -->
   <div class="photo-grid">
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DLFdGaqRpe8/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DLFdGaqRpe8/media/?size=m" alt="Post 1" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      </a>
-    </div>
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DIRa1XjuUqH/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DIRa1XjuUqH/media/?size=m" alt="Post 2" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-      </a>
-    </div>
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DYA1UgHPZAO/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DYA1UgHPZAO/media/?size=m" alt="Post 3" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-      </a>
-    </div>
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DVwjlXMEeur/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DVwjlXMEeur/media/?size=m" alt="Post 4" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-      </a>
-    </div>
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DVABRo8jAuN/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DVABRo8jAuN/media/?size=m" alt="Post 5" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-      </a>
-    </div>
-    <div class="photo-slot">
-      <a href="https://www.instagram.com/p/DSYJlQnjBCs/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DSYJlQnjBCs/media/?size=m" alt="Post 6" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-      </a>
-    </div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DLFdGaqRpe8/" target="_blank" onclick="trackClick('Salao','Post 1')"><img src="https://wsrv.nl/?url=instagram.com/p/DLFdGaqRpe8/media/?size=m" alt="Post 1"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DIRa1XjuUqH/" target="_blank" onclick="trackClick('Salao','Post 2')"><img src="https://wsrv.nl/?url=instagram.com/p/DIRa1XjuUqH/media/?size=m" alt="Post 2"></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DYA1UgHPZAO/" target="_blank" onclick="trackClick('Salao','Post 3')"><img src="https://wsrv.nl/?url=instagram.com/p/DYA1UgHPZAO/media/?size=m" alt="Post 3"></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DVwjlXMEeur/" target="_blank" onclick="trackClick('Salao','Post 4')"><img src="https://wsrv.nl/?url=instagram.com/p/DVwjlXMEeur/media/?size=m" alt="Post 4"></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DVABRo8jAuN/" target="_blank" onclick="trackClick('Salao','Post 5')"><img src="https://wsrv.nl/?url=instagram.com/p/DVABRo8jAuN/media/?size=m" alt="Post 5"></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DSYJlQnjBCs/" target="_blank" onclick="trackClick('Salao','Post 6')"><img src="https://wsrv.nl/?url=instagram.com/p/DSYJlQnjBCs/media/?size=m" alt="Post 6"></a></div>
   </div>
-
-  <!-- BOTÃO WHATSAPP SALÃO -->
-  <a href="https://wa.me/5562991180328" target="_blank" class="btn btn-wa">
+  <a href="https://wa.me/5562991180328" target="_blank" class="btn btn-wa" onclick="trackClick('Salao','WhatsApp Salao')">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.824L0 24l6.344-1.498A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.844 0-3.573-.49-5.063-1.345l-.363-.214-3.766.889.937-3.667-.236-.375A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     Agendar pelo WhatsApp
   </a>
 
   <!-- DIVISÓRIA -->
-  <div class="divider">
-    <div class="div-line"></div>
-    <div class="div-dot"></div>
-    <div class="div-line"></div>
-  </div>
+  <div class="divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
 
-  <!-- HEADER IMÓVEIS -->
-  <div class="imoveis-header">
-    <div class="imoveis-avatar">
-      <img src="foto.jpg" alt="Paulo Munhoz Imóveis">
-    </div>
-    <div class="imoveis-info">
-      <div class="imoveis-name">Paulo Munhoz Imóveis</div>
-      <div class="imoveis-sub">Corretor de Imóveis</div>
+  <!-- IMÓVEIS -->
+  <div class="sec-header">
+    <div class="sec-avatar"><img src="foto.jpg" alt="Paulo Munhoz Imóveis"></div>
+    <div class="sec-info">
+      <div class="sec-name">Paulo Munhoz Imóveis</div>
+      <div class="sec-sub">Corretor de Imóveis</div>
     </div>
   </div>
-
-  <!-- GRADE VÍDEOS IMÓVEIS -->
   <div class="video-grid">
-    <div class="video-slot">
-      <a href="https://www.instagram.com/p/DWllvV9kWW1/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DWllvV9kWW1/media/?size=m" alt="Vídeo 1" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      </a>
-    </div>
-    <div class="video-slot">
-      <a href="https://www.instagram.com/p/DYNnG9wx9wX/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DYNnG9wx9wX/media/?size=m" alt="Vídeo 2" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      </a>
-    </div>
-    <div class="video-slot">
-      <a href="https://www.instagram.com/p/DZYk6y0xsOc/" target="_blank">
-        <img src="https://wsrv.nl/?url=instagram.com/p/DZYk6y0xsOc/media/?size=m" alt="Vídeo 3" onerror="this.parentElement.parentElement.style.background='#1e1e1e'">
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      </a>
-    </div>
+    <div class="video-slot"><a href="https://www.instagram.com/p/DWllvV9kWW1/" target="_blank" onclick="trackClick('Imoveis','Video 1')"><img src="https://wsrv.nl/?url=instagram.com/p/DWllvV9kWW1/media/?size=m" alt="Vídeo 1"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
+    <div class="video-slot"><a href="https://www.instagram.com/p/DYNnG9wx9wX/" target="_blank" onclick="trackClick('Imoveis','Video 2')"><img src="https://wsrv.nl/?url=instagram.com/p/DYNnG9wx9wX/media/?size=m" alt="Vídeo 2"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
+    <div class="video-slot"><a href="https://www.instagram.com/p/DZYk6y0xsOc/" target="_blank" onclick="trackClick('Imoveis','Video 3')"><img src="https://wsrv.nl/?url=instagram.com/p/DZYk6y0xsOc/media/?size=m" alt="Vídeo 3"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
   </div>
-
-  <!-- BOTÕES IMÓVEIS -->
-  <a href="https://minhahauz.com.br/p/paulomunhoz" target="_blank" class="btn btn-site">
+  <a href="https://minhahauz.com.br/p/paulomunhoz" target="_blank" class="btn btn-site" onclick="trackClick('Imoveis','Portal Imoveis')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
     Portal de Imóveis
   </a>
-
-  <a href="https://www.instagram.com/paulomunhozimoveis/" target="_blank" class="btn btn-insta">
+  <a href="https://www.instagram.com/paulomunhozimoveis/" target="_blank" class="btn btn-insta" onclick="trackClick('Imoveis','Instagram Imoveis')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
     Instagram
   </a>
-
-  <a href="https://wa.me/5562981252212" target="_blank" class="btn btn-wa">
+  <a href="https://wa.me/5562981252212" target="_blank" class="btn btn-wa" onclick="trackClick('Imoveis','WhatsApp Imoveis')">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.824L0 24l6.344-1.498A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.844 0-3.573-.49-5.063-1.345l-.363-.214-3.766.889.937-3.667-.236-.375A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     WhatsApp
   </a>
-
-  <a href="https://youtube.com/@paulomunhoozz" target="_blank" class="btn btn-yt">
+  <a href="https://youtube.com/@paulomunhoozz" target="_blank" class="btn btn-yt" onclick="trackClick('Imoveis','YouTube')">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
     YouTube
   </a>
-
-  <a href="https://www.tiktok.com/@paulomunhooz" target="_blank" class="btn btn-tt">
+  <a href="https://www.tiktok.com/@paulomunhooz" target="_blank" class="btn btn-tt" onclick="trackClick('Imoveis','TikTok')">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
     TikTok
   </a>
 
-  <div class="footer">
-    <span>© Paulo Munhoz · Todos os direitos reservados</span>
-  </div>
+  <!-- DIVISÓRIA -->
+  <div class="divider"><div class="div-line"></div><div class="div-dot"></div><div class="div-line"></div></div>
 
+  <!-- MUNH UNIFORMES -->
+  <div class="sec-header">
+    <div class="logo-avatar">
+      <img src="logo-munh.png" alt="Munh Uniformes" onerror="this.style.display='none'">
+    </div>
+    <div class="sec-info">
+      <div class="sec-name">Munh Uniformes</div>
+      <div class="sec-sub">Uniformes e Jalecos</div>
+    </div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-slot"><a href="https://www.instagram.com/reel/DUQWcsDkYn1/" target="_blank" onclick="trackClick('Munh','Post 1')"><img src="https://wsrv.nl/?url=instagram.com/reel/DUQWcsDkYn1/media/?size=m" alt="Munh 1"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/reel/DXsHXcHkZgF/" target="_blank" onclick="trackClick('Munh','Post 2')"><img src="https://wsrv.nl/?url=instagram.com/reel/DXsHXcHkZgF/media/?size=m" alt="Munh 2"><div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></a></div>
+    <div class="photo-slot"><a href="https://www.instagram.com/p/DWWkw8VkTwC/" target="_blank" onclick="trackClick('Munh','Post 3')"><img src="https://wsrv.nl/?url=instagram.com/p/DWWkw8VkTwC/media/?size=m" alt="Munh 3"></a></div>
+  </div>
+  <a href="https://www.instagram.com/munh.uniformes" target="_blank" class="btn btn-insta" onclick="trackClick('Munh','Instagram Munh')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+    Instagram
+  </a>
+  <a href="https://wa.me/5562988339009" target="_blank" class="btn btn-wa" onclick="trackClick('Munh','WhatsApp Munh')">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.554 4.099 1.523 5.824L0 24l6.344-1.498A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.844 0-3.573-.49-5.063-1.345l-.363-.214-3.766.889.937-3.667-.236-.375A9.959 9.959 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </a>
+  <a href="https://www.munh.com.br" target="_blank" class="btn btn-blue" onclick="trackClick('Munh','Site Munh')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+    Site da Loja
+  </a>
+
+  <div class="footer"><span>© Paulo Munhoz · Todos os direitos reservados</span></div>
 </div>
 </body>
 </html>
